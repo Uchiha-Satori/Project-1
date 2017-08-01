@@ -1,0 +1,23 @@
+$icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
+@import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+$background-color: #333; //hex color gray
+$font-color: #eee; //hex color off-white
+$light-blue: #bff3fc;
+
+body {
+  background-color: $background-color;
+  color: $font-color;
+}
+
+.box {
+  border: 2px solid $light-blue;
+  height: 150px;
+
+}
+
+#grid-container { //everything works fine not sure why linter is picky.
+  height: 75px;
+  width: 500px;
+
+}
