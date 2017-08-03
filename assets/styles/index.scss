@@ -10,10 +10,30 @@ body {
   color: $font-color;
 }
 
-.box {
-  border: 2px solid $light-blue;
-  height: 150px;
+h2 {
+  text-align: center; //not working right now, figure it out later
+}
 
+.box {
+  border: 3px solid $light-blue;
+  float: left;
+  height: 150px;
+  width: 150px;
+
+}
+
+.boxX {
+  color: #00f;
+  content: 'X';
+  font-size: 115px;
+  text-align: center;
+}
+
+.boxO {
+  color: #4286f4;
+  content: 'O';
+  font-size: 115px;
+  text-align: center;
 }
 
 #grid-container { //everything works fine not sure why linter is picky.
