@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Tic Tac Toe Grid</title>
+      <title>Tic Tac Toe</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -12,18 +12,52 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="container-fluid">
-      <h1>Tic Tac Toe Grid</h1>
+      <h1>Tic Tac Toe</h1>
+
+      <div>
+          <form id="sign-up">
+            <fieldset>
+              <legend>Sign Up Below</legend>
+              <input type="text" name="credentials[email]" placeholder="Email">
+              <input type="password" name="credentials[password]" placeholder="Create Password">
+              <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+              <input type="submit" name="submit" value="Sign Up!">
+            </fieldset>
+          </form>
+        </div>
+
+       <div>
+          <form id="sign-in">
+            <fieldset>
+              <legend>Login Below</legend>
+              <input type="text" name="credentials[email]" placeholder="Email">
+              <input type="password" name="credentials[password]" placeholder="Password">
+              <input type="submit" name="submit" value="Sign In!">
+            </fieldset>
+          </form>
+        </div>
+
+       <div>
+          <form id="change-password">
+            <fieldset>
+              <legend>Login Below</legend>
+              <input type="password" name="credentials[password]" placeholder="Old Password">
+              <input type="password" name="credentials[password]" placeholder="New Password">
+              <input type="submit" name="submit" value="Submit Changes">
+            </fieldset>
+          </form>
+        </div>
 
     <div class="input-prepend input-append">
-    <span class="add-on win_text">X won</span><strong id="xWin" class="win_times add-on">0</strong><span class="add-on">time(s)</span>
+    <span class="add-on win_text">X won </span><strong id="xWin" class="win_times add-on"> 0 </strong><span class="add-on">time(s)</span>
     </div>
 
     <div class="input-prepend input-append">
-    <span class="add-on win_text">O won</span><strong id="oWin" class="win_times add-on">0</strong><span class="add-on">time(s)</span>
+    <span class="add-on win_text">O won </span><strong id="oWin" class="win_times add-on"> 0 </strong><span class="add-on">time(s)</span>
     </div>
 
     <div class="row"><a href="#" id="reset" class="btn-success btn span3" >Restart</a></div>
-<p id="message"> Message</p>
+<p id="message"></p>
 
 
 <div class="gameBoard" id ="grid-container">

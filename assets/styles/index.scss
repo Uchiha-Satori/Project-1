@@ -3,7 +3,8 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 
 $background-color: #333; //hex color gray
 $font-color: #eee; //hex color off-white
-$light-blue: #bff3fc;
+$blue-jay: #2a75ed;
+$light-purple: #605cd6;
 
 body {
   background-color: $background-color;
@@ -14,8 +15,20 @@ h2 {
   text-align: center; //not working right now, figure it out later
 }
 
+#sign-up {
+  color: #000;
+}
+
+#sign-in {
+  color: #000;
+}
+
+#change-password {
+  color: #000;
+}
+
 .box {
-  border: 3px solid $light-blue;
+  border: 3px solid $blue-jay;
   float: left;
   height: 150px;
   width: 150px;
@@ -23,34 +36,40 @@ h2 {
 }
 
 .boxX {
-  color: #00f;
+  color: $blue-jay;
   content: 'X';
   font-size: 115px;
   text-align: center;
 }
 
 .boxO {
-  color: #4286f4;
+  color: $light-purple;
   content: 'O';
   font-size: 115px;
   text-align: center;
 }
 
 #grid-container { //everything works fine not sure why linter is picky.
+  cursor: pointer;
   height: 75px;
   width: 500px;
 
 }
 
-#reset { clear: both;
+#reset {
+  clear: both;
   color: #fff;
   cursor: pointer;
   float: left;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 20px;
+  font-size: 15px;
   outline: none;
   padding: 5px 10px;
   text-align: center;
   text-transform: uppercase;
-  width: 204px;
+  width: 100px;
+}
+
+#message {
+  font-size: 15px;
 }
