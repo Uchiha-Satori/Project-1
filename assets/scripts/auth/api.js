@@ -1,3 +1,5 @@
+'use strict'
+
 const signUp = (data) => {
   return $.ajax({
     url: 'https://tic-tac-toe.wdibos.com/sign-up',
@@ -5,7 +7,7 @@ const signUp = (data) => {
     data: {
       'credentials': {
         'email': data.credentials.email,
-        'password': data.credentials.Password,
+        'password': data.credentials.password,
         'password_confirmation': data.credentials.password
       }
     }
@@ -19,7 +21,7 @@ const signIn = (data) => {
     data: {
       'credentials': {
         'email': data.credentials.email,
-        'password': data.credentials.Password
+        'password': data.credentials.password
       }
     }
   })
@@ -31,7 +33,7 @@ const changePassword = (data) => {
     method: 'PATCH',
     data: {
       'passwords': {
-        'old': data.Password.old,
+        'old': data.password.old,
         'new': data.password.new
       }
     }
