@@ -31,7 +31,6 @@ $('.gameBoard .row .box').on('click', function (event) {
       (spot3.hasClass('o') && spot5.hasClass('o') && spot7.hasClass('o'))
   ) {
     message('O Wins!')
-    // $('.gameBoard').text('+')
     $('.gameBoard').removeClass('disable')
     $('.gameBoard').removeClass('o')
     $('.gameBoard').removeClass('x')
@@ -45,13 +44,12 @@ $('.gameBoard .row .box').on('click', function (event) {
         (spot3.hasClass('x') && spot5.hasClass('x') && spot7.hasClass('x'))
   ) {
     message('X Wins!')
-    // $('.gameBoard').text('+')
     $('.gameBoard').removeClass('disable')
     $('.gameBoard').removeClass('o')
     $('.gameBoard').removeClass('x')
   } else if (turn === 8) {
     message('Tie Game!')
-    // $('.gameBoard').text('+')
+
     $('.gameBoard').removeClass('disable')
     $('.gameBoard').removeClass('o')
     $('.gameBoard').removeClass('x')

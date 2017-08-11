@@ -33,9 +33,16 @@ const onLogOut = function (event) {
     .catch(ui.logoutFailure)
 }
 
+const updateGame = function (index, value, over) {
+  api.userMoves(index, value, over)
+    .then(ui.movesLogged)
+    .catch(ui.movesNotLogged)
+}
+
 module.exports = {
   onSignIn,
   onSignUp,
   onChangePassword,
-  onLogOut
+  onLogOut,
+  updateGame
 }
