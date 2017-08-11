@@ -49,7 +49,7 @@ $('.gameBoard .row .box').on('click', function (event) {
     $('.gameBoard').removeClass('disable')
     $('.gameBoard').removeClass('o')
     $('.gameBoard').removeClass('x')
-  } else if (turn === 8) { // maybe === should be == ???
+  } else if (turn === 8) {
     message('Tie Game!')
     // $('.gameBoard').text('+')
     $('.gameBoard').removeClass('disable')

@@ -1,4 +1,5 @@
 'use strict'
+const app = require('./app.js')
 
 const signUpSuccess = (data) => {
   console.log(data)
@@ -9,7 +10,9 @@ const signUpFailure = (error) => {
 }
 
 const signInSuccess = (data) => {
-  console.log(data)
+  app.user = data.user
+  // console.log(app.user.id) this shows user#
+  console.log('this is working')
 }
 
 const signInFailure = (error) => {
@@ -17,10 +20,19 @@ const signInFailure = (error) => {
 }
 
 const changePasswordSuccess = (data) => {
-  console.log(data)
+  console.log('data')
 }
 
-const changePasswordfailure = (error) => {
+const changePasswordFailure = (error) => {
+  console.log(error)
+}
+
+const logoutSuccess = () => {
+  app.user = null
+  console.log('it log off') // not working yet
+}
+
+const logoutFailure = (error) => {
   console.log(error)
 }
 
@@ -29,6 +41,8 @@ module.exports = {
   signUpSuccess,
   signInSuccess,
   signInFailure,
-  changePasswordfailure,
-  changePasswordSuccess
+  changePasswordFailure,
+  changePasswordSuccess,
+  logoutSuccess,
+  logoutFailure
 }
