@@ -53,9 +53,32 @@ const userLogout = () => {
     method: 'DELETE'
   })
 }
+
+const userMoves = function (index, value, over) {
+  console.log(app.game.id)
+  console.log(app.user.token)
+  return $.ajax({
+    url: app.host + '/games/' + app.game.id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + app.user.token // store.user.token
+    },
+    data: {
+      'game': {
+        'cell': {
+          'index': index,
+          'value': value
+        },
+        'over': over
+      }
+    }
+  })
+}
+
 module.exports = {
   signIn,
   signUp,
   changePassword,
-  userLogout
+  userLogout,
+  userMoves
 }
