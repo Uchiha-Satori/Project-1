@@ -21,5 +21,5 @@ $(() => {
   $('#change-password').on('submit', gameEvents.onChangePassword)
   $('#log-out').on('click', gameEvents.onLogOut)
   $('.gameBoard').hide()
-  $('#history').on('click', gameEvents.updateGame)
+  $('#history').on('click', gameEvents.updateGame) // this could be wrong, linking to updateGame in events.js
 })
