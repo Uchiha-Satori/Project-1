@@ -113,8 +113,7 @@ $('#reset').on('click', function () {
   $(spot8).html('')
   $(spot9).removeClass('boxO boxX disable o x')
   $(spot9).html('')
-  // $('#message').hide('message') find out how to to show winner message again after first reset
-  // $('#message').show('message')
+  $('#message').empty() // see if i can use .empty() with the above later.
   turn = 0
 })
 
