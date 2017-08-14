@@ -39,10 +39,18 @@ const updateGame = function (index, value, over) {
     .catch(ui.movesNotLogged)
 }
 
+const newGame = function () {
+  event.preventDefault()
+  api.game()
+    .then(ui.onNewGameSuccess)
+    .catch(ui.onNewGameFailure)
+}
+
 module.exports = {
   onSignIn,
   onSignUp,
   onChangePassword,
   onLogOut,
-  updateGame
+  updateGame,
+  newGame
 }

@@ -1,9 +1,15 @@
 'use strict'
+const gameEvents = require('./auth/events.js')
+
 const x = 'x'
 const o = 'o'
 let turn = 0
 let oWin = 0
 let xWin = 0
+let index
+let value
+let over
+let cells
 const spot1 = $('.spot1')
 const spot2 = $('.spot2')
 const spot3 = $('.spot3')
@@ -17,6 +23,14 @@ const spot9 = $('.spot9')
 const message = function (msg) {
   $('#message').text(msg)
 }
+
+// const pushCells = function () {
+//   cells = ($('.gameboard').text()
+//     .toLowerCase()
+//     .split('')
+//   )
+//   return cells
+// }
 
 $('.gameBoard .row .box').on('click', function (event) {
   const $box = $(event.currentTarget)
@@ -34,6 +48,9 @@ $('.gameBoard .row .box').on('click', function (event) {
     $('.gameBoard').removeClass('disable')
     $('.gameBoard').removeClass('o')
     $('.gameBoard').removeClass('x')
+    // pushCells()
+    over = true
+    console.log(cells)
   } else if ((spot1.hasClass('x') && spot2.hasClass('x') && spot3.hasClass('x')) ||
         (spot4.hasClass('x') && spot5.hasClass('x') && spot6.hasClass('x')) ||
         (spot7.hasClass('x') && spot8.hasClass('x') && spot9.hasClass('x')) ||
@@ -47,12 +64,17 @@ $('.gameBoard .row .box').on('click', function (event) {
     $('.gameBoard').removeClass('disable')
     $('.gameBoard').removeClass('o')
     $('.gameBoard').removeClass('x')
+    // pushCells()
+    console.log(cells)
   } else if (turn === 8) {
     message('Tie Game!')
 
     $('.gameBoard').removeClass('disable')
     $('.gameBoard').removeClass('o')
     $('.gameBoard').removeClass('x')
+    // pushCells()
+    over = true
+    console.log(cells)
     turn = 0
   } else if ($(this).hasClass('disable')) {
     message('This spot is already filled')
@@ -60,6 +82,53 @@ $('.gameBoard .row .box').on('click', function (event) {
     turn++
     $(this).text(x)
     $(this).addClass('disable x')
+    if ($(this).is('.spot1')) {
+      value = 'x'
+      index = 0
+      over = false
+      gameEvents.updateGame(index, value, over)
+    } else if ($(this).is('.spot2')) {
+      value = 'x'
+      index = 1
+      over = false
+      gameEvents.updateGame(index, value, over)
+    } else if ($(this).is('.spot3')) {
+      value = 'x'
+      index = 2
+      over = false
+      gameEvents.updateGame(index, value, over)
+    } else if ($(this).is('.spot4')) {
+      value = 'x'
+      index = 3
+      over = false
+      gameEvents.updateGame(index, value, over)
+    } else if ($(this).is('.spot5')) {
+      value = 'x'
+      index = 4
+      over = false
+      gameEvents.updateGame(index, value, over)
+    } else if ($(this).is('.spot6')) {
+      value = 'x'
+      index = 5
+      over = false
+      gameEvents.updateGame(index, value, over)
+    } else if ($(this).is('.spot7')) {
+      value = 'x'
+      index = 6
+      over = false
+      gameEvents.updateGame(index, value, over)
+    } else if ($(this).is('.spot8')) {
+      value = 'x'
+      index = 7
+      over = false
+      gameEvents.updateGame(index, value, over)
+    } else if ($(this).is('.spot9')) {
+      value = 'x'
+      index = 8
+      over = false
+      gameEvents.updateGame(index, value, over)
+    }
+
     if ((spot1.hasClass('x') && spot2.hasClass('x') && spot3.hasClass('x')) ||
         (spot4.hasClass('x') && spot5.hasClass('x') && spot6.hasClass('x')) ||
         (spot7.hasClass('x') && spot8.hasClass('x') && spot9.hasClass('x')) ||
@@ -78,6 +147,53 @@ $('.gameBoard .row .box').on('click', function (event) {
     turn++
     $(this).text(o)
     $(this).addClass('disable o')
+    if ($(this).is('.spot1')) {
+      value = 'o'
+      index = 0
+      over = false
+      gameEvents.updateGame(index, value, over)
+    } else if ($(this).is('.spot2')) {
+      value = 'o'
+      index = 1
+      over = false
+      gameEvents.updateGame(index, value, over)
+    } else if ($(this).is('.spot3')) {
+      value = 'o'
+      index = 2
+      over = false
+      gameEvents.updateGame(index, value, over)
+    } else if ($(this).is('.spot4')) {
+      value = 'o'
+      index = 3
+      over = false
+      gameEvents.updateGame(index, value, over)
+    } else if ($(this).is('.spot5')) {
+      value = 'o'
+      index = 4
+      over = false
+      gameEvents.updateGame(index, value, over)
+    } else if ($(this).is('.spot6')) {
+      value = 'o'
+      index = 5
+      over = false
+      gameEvents.updateGame(index, value, over)
+    } else if ($(this).is('.spot7')) {
+      value = 'o'
+      index = 6
+      over = false
+      gameEvents.updateGame(index, value, over)
+    } else if ($(this).is('.spot8')) {
+      value = 'o'
+      index = 7
+      over = false
+      gameEvents.updateGame(index, value, over)
+    } else if ($(this).is('.spot9')) {
+      value = 'o'
+      index = 8
+      over = false
+      gameEvents.updateGame(index, value, over)
+    }
+
     if ((spot1.hasClass('o') && spot2.hasClass('o') && spot3.hasClass('o')) ||
     (spot4.hasClass('o') && spot5.hasClass('o') && spot6.hasClass('o')) ||
     (spot7.hasClass('o') && spot8.hasClass('o') && spot9.hasClass('o')) ||
@@ -94,6 +210,7 @@ $('.gameBoard .row .box').on('click', function (event) {
     }
   }
 })
+
 $('#reset').on('click', function () {
   $(spot1).removeClass('boxO boxX disable o x')
   $(spot1).html('') // .html clears the content of box
@@ -113,7 +230,9 @@ $('#reset').on('click', function () {
   $(spot8).html('')
   $(spot9).removeClass('boxO boxX disable o x')
   $(spot9).html('')
-  $('#message').empty() // see if i can use .empty() with the above later.
+  $('#message').empty()
+  // see if i can use .empty() with the above later.
+  // add the new game function to start new board
   turn = 0
 })
 

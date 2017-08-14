@@ -2,6 +2,7 @@
 
 const setAPIOrigin = require('../../lib/set-api-origin')
 const config = require('./config')
+const ui = require('./auth/ui.js')
 
 $(() => {
   setAPIOrigin(location, config)
@@ -21,5 +22,12 @@ $(() => {
   $('#change-password').on('submit', gameEvents.onChangePassword)
   $('#log-out').on('click', gameEvents.onLogOut)
   $('.gameBoard').hide()
-  $('#history').on('click', gameEvents.updateGame) // this could be wrong, linking to updateGame in events.js
+  $('#reset').hide()
+  $('#history').hide()
+  $('#new-game').hide()
+  // $('#history').on('click', gameEvents.updateGame)
+  $('#new-game').click(gameEvents.newGame)
+  $('#new-game').click(ui.gameSuccess)
+  $('#reset').click(gameEvents.newGame)
+  // this line above could be wrong, linking to updateGame in events.js
 })

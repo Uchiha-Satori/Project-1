@@ -1,7 +1,15 @@
 'use strict'
 const app = require('./app.js')
+const api = require('./api.js')
+// api.name // stephen
 const message = function (msg) {
   $('#message').text(msg)
+}
+
+const gameSuccess = () => {
+  $('.gameBoard').show()
+  $('#reset').show()
+  $('#history').show()
 }
 
 const signUpSuccess = (data) => {
@@ -16,8 +24,12 @@ const signUpFailure = (error) => {
 
 const signInSuccess = (data) => {
   message('Sign In Success, Good Luck!!!')
-  $('.gameBoard').show()
   app.user = data.user
+  api.game()
+    .then($('#new-game').show()) // gameSuccess used to be in here.
+    .catch(function () {
+      console.log('game failed to load')
+    })
   // console.log(app.user.id) this shows user#
 
   console.log('this is working')
@@ -58,6 +70,17 @@ const movesNotLogged = (error) => {
   console.log(error)
 }
 
+const onNewGameSuccess = (data) => {
+  $('#new-game').hide()
+  app.game = data.game
+  app.game.id = data.game.id
+  console.log(data)
+}
+
+const onNewGameFailure = (data) => {
+  console.log(data)
+}
+
 module.exports = {
   signUpFailure,
   signUpSuccess,
@@ -68,5 +91,8 @@ module.exports = {
   logoutSuccess,
   logoutFailure,
   movesLogged,
-  movesNotLogged
+  movesNotLogged,
+  onNewGameSuccess,
+  onNewGameFailure,
+  gameSuccess
 }
