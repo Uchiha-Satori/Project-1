@@ -25,9 +25,8 @@ $(() => {
   $('#reset').hide()
   $('#history').hide()
   $('#new-game').hide()
-  // $('#history').on('click', gameEvents.updateGame)
   $('#new-game').click(gameEvents.newGame)
   $('#new-game').click(ui.gameSuccess)
   $('#reset').click(gameEvents.newGame)
-  // this line above could be wrong, linking to updateGame in events.js
+  $('#history').click(gameEvents.pastGames)
 })

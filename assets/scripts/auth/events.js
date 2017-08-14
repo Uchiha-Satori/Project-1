@@ -46,11 +46,19 @@ const newGame = function () {
     .catch(ui.onNewGameFailure)
 }
 
+const pastGames = function (event) {
+  event.preventDefault()
+  api.gameHistory()
+    .then(ui.getSuccess)
+    .catch(ui.getFail)
+}
+
 module.exports = {
   onSignIn,
   onSignUp,
   onChangePassword,
   onLogOut,
   updateGame,
-  newGame
+  newGame,
+  pastGames
 }

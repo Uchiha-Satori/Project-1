@@ -23,7 +23,7 @@ const signUpFailure = (error) => {
 }
 
 const signInSuccess = (data) => {
-  message('Sign In Success, Good Luck!!!')
+  message('Sign In Success, Click NEW GAME')
   app.user = data.user
   api.game()
     .then($('#new-game').show()) // gameSuccess used to be in here.
@@ -81,6 +81,15 @@ const onNewGameFailure = (data) => {
   console.log(data)
 }
 
+const getSuccess = function (data) {
+  $('#message').html('Games Played:' + data.games.length)
+  console.log(data)
+}
+
+const getFail = (error) => {
+  console.error(error)
+}
+
 module.exports = {
   signUpFailure,
   signUpSuccess,
@@ -94,5 +103,7 @@ module.exports = {
   movesNotLogged,
   onNewGameSuccess,
   onNewGameFailure,
-  gameSuccess
+  gameSuccess,
+  getFail,
+  getSuccess
 }
