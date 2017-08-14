@@ -12,7 +12,6 @@ Planning Process:
 Unsloved Mysteries (for now)
 -Ensure X and o are different colors.
 -Center the game board and some buttons.
--Make "View Previous Games" button function.
 
 Link to Wireframe:
 http://imgur.com/a/YPRfq

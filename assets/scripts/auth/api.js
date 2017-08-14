@@ -89,7 +89,7 @@ const userMoves = function (index, value, over) {
 
 const gameHistory = () => {
   return $.ajax({
-    uri: 'https://aqueous-atoll-85096.herokuapp.com//games/',
+    url: 'https://aqueous-atoll-85096.herokuapp.com//games/',
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + app.user.token
