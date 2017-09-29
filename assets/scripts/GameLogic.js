@@ -53,17 +53,11 @@ $('.gameBoard .row .box').on('click', function (event) {
     $('.gameBoard').removeClass('disable')
     $('.gameBoard').removeClass('o')
     $('.gameBoard').removeClass('x')
-  } else if (turn === 9) {
-    message('Tie Game!')
-    $('.gameBoard').removeClass('disable')
-    $('.gameBoard').removeClass('o')
-    $('.gameBoard').removeClass('x')
-    over = true
-    turn = 0
   } else if ($(this).hasClass('disable')) {
     message('This spot is already filled')
   } else if (turn % 2 === 0) {
     turn++
+    console.log(turn)
     $(this).text(x)
     $(this).addClass('disable x')
     if ($(this).is('.spot1')) {
@@ -112,7 +106,6 @@ $('.gameBoard .row .box').on('click', function (event) {
       over = false
       gameEvents.updateGame(index, value, over)
     }
-
     if ((spot1.hasClass('x') && spot2.hasClass('x') && spot3.hasClass('x')) ||
         (spot4.hasClass('x') && spot5.hasClass('x') && spot6.hasClass('x')) ||
         (spot7.hasClass('x') && spot8.hasClass('x') && spot9.hasClass('x')) ||
@@ -129,6 +122,7 @@ $('.gameBoard .row .box').on('click', function (event) {
     }
   } else {
     turn++
+    console.log(turn)
     $(this).text(o)
     $(this).addClass('disable o')
     if ($(this).is('.spot1')) {
@@ -192,6 +186,16 @@ $('.gameBoard .row .box').on('click', function (event) {
       $('#oWin').text(oWin)
     }
   }
+  if (turn === 9) {
+    console.log('tie: ' + turn)
+    message('Tie Game!')
+    $('.gameBoard').removeClass('disable')
+    $('.gameBoard').removeClass('o')
+    $('.gameBoard').removeClass('x')
+    over = true
+    turn = 0
+  }
+  // turn++
 })
 
 $('#reset').on('click', function () {
