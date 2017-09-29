@@ -9,7 +9,6 @@ let xWin = 0
 let index
 let value
 let over
-let cells
 const spot1 = $('.spot1')
 const spot2 = $('.spot2')
 const spot3 = $('.spot3')
@@ -23,14 +22,6 @@ const spot9 = $('.spot9')
 const message = function (msg) {
   $('#message').text(msg)
 }
-
-// const pushCells = function () {
-//   cells = ($('.gameboard').text()
-//     .toLowerCase()
-//     .split('')
-//   )
-//   return cells
-// }
 
 $('.gameBoard .row .box').on('click', function (event) {
   const $box = $(event.currentTarget)
@@ -48,9 +39,7 @@ $('.gameBoard .row .box').on('click', function (event) {
     $('.gameBoard').removeClass('disable')
     $('.gameBoard').removeClass('o')
     $('.gameBoard').removeClass('x')
-    // pushCells()
     over = true
-    console.log(cells)
   } else if ((spot1.hasClass('x') && spot2.hasClass('x') && spot3.hasClass('x')) ||
         (spot4.hasClass('x') && spot5.hasClass('x') && spot6.hasClass('x')) ||
         (spot7.hasClass('x') && spot8.hasClass('x') && spot9.hasClass('x')) ||
@@ -64,17 +53,12 @@ $('.gameBoard .row .box').on('click', function (event) {
     $('.gameBoard').removeClass('disable')
     $('.gameBoard').removeClass('o')
     $('.gameBoard').removeClass('x')
-    // pushCells()
-    console.log(cells)
-  } else if (turn === 8) {
+  } else if (turn === 9) {
     message('Tie Game!')
-
     $('.gameBoard').removeClass('disable')
     $('.gameBoard').removeClass('o')
     $('.gameBoard').removeClass('x')
-    // pushCells()
     over = true
-    console.log(cells)
     turn = 0
   } else if ($(this).hasClass('disable')) {
     message('This spot is already filled')
@@ -193,7 +177,6 @@ $('.gameBoard .row .box').on('click', function (event) {
       over = false
       gameEvents.updateGame(index, value, over)
     }
-
     if ((spot1.hasClass('o') && spot2.hasClass('o') && spot3.hasClass('o')) ||
     (spot4.hasClass('o') && spot5.hasClass('o') && spot6.hasClass('o')) ||
     (spot7.hasClass('o') && spot8.hasClass('o') && spot9.hasClass('o')) ||
