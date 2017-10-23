@@ -14,6 +14,7 @@ const gameSuccess = () => {
 
 const signUpSuccess = (data) => {
   message('Sign Up Success')
+  $('#change-password').show()
   console.log(data)
 }
 
@@ -26,13 +27,11 @@ const signInSuccess = (data) => {
   message('Sign In Success, Click NEW GAME')
   app.user = data.user
   api.game()
-    .then($('#new-game').show()) // gameSuccess used to be in here.
-    .catch(function () {
-      console.log('game failed to load')
-    })
-  // console.log(app.user.id) this shows user#
-
-  console.log('this is working')
+  $('#new-game').show()
+  $('#sign-up').hide()
+  $('#sign-in').hide()
+  $('#change-password').show()
+  $('#log-out').show()
 }
 
 const signInFailure = (error) => {
@@ -53,7 +52,13 @@ const changePasswordFailure = (error) => {
 const logoutSuccess = () => {
   app.user = null
   message('Log Out Success')
+  $('#sign-up').show()
+  $('#sign-in').show()
+  $('#change-password').hide()
+  $('#log-out').hide()
   $('.gameBoard').hide()
+  $('#reset').hide()
+  $('#history').hide()
   console.log('it log off') // not working yet
 }
 

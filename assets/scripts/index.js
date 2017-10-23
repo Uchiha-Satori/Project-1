@@ -25,6 +25,8 @@ $(() => {
   $('#reset').hide()
   $('#history').hide()
   $('#new-game').hide()
+  $('#log-out').hide()
+  $('#change-password').hide()
   $('#new-game').click(gameEvents.newGame)
   $('#new-game').click(ui.gameSuccess)
   $('#reset').click(gameEvents.newGame)

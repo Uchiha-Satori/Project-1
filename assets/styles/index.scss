@@ -11,8 +11,8 @@ body {
   color: $font-color;
 }
 
-h2 {
-  text-align: center; //not working right now, figure it out later
+h1 {
+  text-align: center;
 }
 
 #sign-up {
@@ -49,11 +49,12 @@ h2 {
   text-align: center;
 }
 
-#grid-container { //everything works fine not sure why linter is picky.
+#grid-container {
   cursor: pointer;
   height: 75px;
+  margin-left: auto;
+  margin-right: auto;
   width: 500px;
-
 }
 
 #reset {
