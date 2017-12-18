@@ -1,6 +1,6 @@
 'use strict'
 const app = require('./app.js')
-const config = require('../config.js')
+// const config = require('../config.js')
 
 const signUp = (data) => {
   return $.ajax({
@@ -56,7 +56,6 @@ const userLogout = () => {
 }
 
 const game = () => {
-  console.log(config.apiOrigin)
   return $.ajax({
     url: 'https://aqueous-atoll-85096.herokuapp.com/games/',
     headers: {
@@ -67,8 +66,6 @@ const game = () => {
 }
 
 const userMoves = function (index, value, over) {
-  console.log(app.game.id)
-  console.log(app.user.token)
   return $.ajax({
     url: 'https://aqueous-atoll-85096.herokuapp.com//games/' + app.game.id,
     method: 'PATCH',

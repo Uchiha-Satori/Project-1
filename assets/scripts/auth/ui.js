@@ -15,12 +15,10 @@ const gameSuccess = () => {
 const signUpSuccess = (data) => {
   message('Sign Up Success')
   $('#change-password').show()
-  console.log(data)
 }
 
-const signUpFailure = (error) => {
+const signUpFailure = () => {
   message('Sign Up Failure Username taken or incorrect matching password')
-  console.log(error)
 }
 
 const signInSuccess = (data) => {
@@ -34,19 +32,16 @@ const signInSuccess = (data) => {
   $('#log-out').show()
 }
 
-const signInFailure = (error) => {
-  console.log(error)
+const signInFailure = () => {
   message('Incorrect Password or Username')
 }
 
 const changePasswordSuccess = (data) => {
   message('Password Changed')
-  console.log(data)
 }
 
-const changePasswordFailure = (error) => {
+const changePasswordFailure = () => {
   message('Error, Try Again, Password Not Changed')
-  console.log(error)
 }
 
 const logoutSuccess = () => {
@@ -59,40 +54,32 @@ const logoutSuccess = () => {
   $('.gameBoard').hide()
   $('#reset').hide()
   $('#history').hide()
-  console.log('it log off') // not working yet
 }
 
-const logoutFailure = (error) => {
+const logoutFailure = () => {
   message('Log Out Fail')
-  console.log(error)
 }
 
 const movesLogged = (data) => {
-  console.log(data)
 }
 
-const movesNotLogged = (error) => {
-  console.log(error)
+const movesNotLogged = () => {
 }
 
 const onNewGameSuccess = (data) => {
   $('#new-game').hide()
   app.game = data.game
   app.game.id = data.game.id
-  console.log(data)
 }
 
 const onNewGameFailure = (data) => {
-  console.log(data)
 }
 
 const getSuccess = function (data) {
   $('#message').html('Games Played:' + data.games.length)
-  console.log(data)
 }
 
-const getFail = (error) => {
-  console.error(error)
+const getFail = () => {
 }
 
 module.exports = {

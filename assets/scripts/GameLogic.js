@@ -57,7 +57,6 @@ $('.gameBoard .row .box').on('click', function (event) {
     message('This spot is already filled')
   } else if (turn % 2 === 0) {
     turn++
-    console.log(turn)
     $(this).text(x)
     $(this).addClass('disable x')
     if ($(this).is('.spot1')) {
@@ -122,7 +121,6 @@ $('.gameBoard .row .box').on('click', function (event) {
     }
   } else {
     turn++
-    console.log(turn)
     $(this).text(o)
     $(this).addClass('disable o')
     if ($(this).is('.spot1')) {
@@ -187,7 +185,6 @@ $('.gameBoard .row .box').on('click', function (event) {
     }
   }
   if (turn === 9) {
-    console.log('tie: ' + turn)
     message('Tie Game!')
     $('.gameBoard').removeClass('disable')
     $('.gameBoard').removeClass('o')
